@@ -1,0 +1,47 @@
+h1, h2 {
+  padding: 0 10%;
+  margin: 0;
+  color: #aaa;
+  font-weight: normal;
+}
+
+
+
+body {
+	/*background-image: url("beerPour1.jpg");
+	background-repeat: no-repeat;
+	background-attachment: fixed;*/
+	
+	background-color: #222;
+}
+
+ul {
+	list-style-type: none;
+	margin: 0;
+	padding: 0;
+	overflow: hidden;
+	background-color: #333;
+}
+
+li {
+	float: left;
+
+}
+
+li a {
+	display: block;
+	color: white;
+	text-align: center;
+	padding: 14px 16px;
+	text-decoration: none;
+	text-transform: uppercase;
+	font-family: "Arial";
+}
+
+li a:hover {
+	background-color: #e6e6e6;
+}
+
+.active {
+	background-color: #111;
+}
