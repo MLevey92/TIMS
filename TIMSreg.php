@@ -52,7 +52,7 @@ Still trying to echo query e_id upon registration
 				if($result) { //It worked
 					echo "Thanks for registering $first $last<br>";
 					
-					/*echo e_id for employee upon registration(plz halp) */ 
+					/*echo e_id for employee upon registration */ 
 					$r = mysqli_query($dbc, "select e_id from employee where e_name = $fullname");
 					$row=mysqli_fetch_array($r,MYSQLI_ASSOC);
 					echo ("%s (%s)\n",$row["e_id"]);
