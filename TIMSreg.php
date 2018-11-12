@@ -1,11 +1,6 @@
-/*employee registration page... Still needs an upload picture field
-Assuming supervisors do not register here, rather have their database info inserted manually
-Still trying to echo query e_id upon registration
-*/
-
 <?php
 	ini_set('error_reporting', 1);
-	require './includes/header.php';
+	require './includes/TIMSheader.php';
 	require_once '../mysqli_config.php';  //$dbc is the connection string set upon successful connection
 		$missing = array();	
 		if(isset($_POST['submit'])) {
@@ -27,7 +22,7 @@ Still trying to echo query e_id upon registration
 			if (!empty($_POST['shift']))
 				$shift = $_POST['shift'];
 			else
-				$missing[] = "Division is missing<br>";
+				$missing[] = "Shift is missing<br>";
 			
 			if (!empty($_POST['pwd']))
 				$pwd = $_POST['pwd'];
@@ -47,20 +42,13 @@ Still trying to echo query e_id upon registration
 				require_once '../mysqli_config.php';  //$dbc is the connection string set upon successful connection
 				echo "<main>";
 				$fullname = $first . ' ' . $last;
-				$query = "INSERT into employee(e_name, div_name, shift, password) VALUES ('$fullname', '$division', '$shift', '$pwd')";
-				$result = mysqli_query($dbc, $query);
+				$query = "INSERT into employee(e_name, div_name, shift, password) VALUES ('$fullname', '$division', $shift, '$pwd')";				$result = mysqli_query($dbc, $query);
 				if($result) { //It worked
 					echo "Thanks for registering $first $last<br>";
-					
-					/*echo e_id for employee upon registration */ 
-					$r = mysqli_query($dbc, "select e_id from employee where e_name = $fullname");
-					$row=mysqli_fetch_array($r,MYSQLI_ASSOC);
-					echo ("%s (%s)\n",$row["e_id"]);
-					
 				}
 				else echo "We're sorry, we were not able to add you at this time.<br>";
 				echo "</main>";
-				include 'includes/footer.php';
+				include 'includes/TIMSfooter.php';
 				exit;
 			}
 			
@@ -111,5 +99,5 @@ Still trying to echo query e_id upon registration
 			<input type = submit value = "Register" name="submit">
 	</form>
 	</main>
-<?php include 'includes/footer.php'; ?>
+<?php include 'includes/TIMSfooter.php'; ?>
 
