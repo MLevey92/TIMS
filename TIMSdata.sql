@@ -4,8 +4,10 @@ Also, I used a lot of placeholders in the entries,
 so if anybody knows how to make the data more realistic as far as military ID's... feel free to edit
 */
 
+
+/*Auto-increment allows us to skip e_id input */
 delete from employee;
-insert into employee values(1000, 'Bob', 'division1', 1);
+insert into employee(e_name, div_name, shift, password) values('Bob', 'division1', 1, 'pAssword');
 
 delete from supervisor;
 insert into supervisor values(1000, 2001);
