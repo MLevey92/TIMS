@@ -1,7 +1,9 @@
-CREATE TABLE employee (e_id INT NOT NULL,
+CREATE TABLE employee (e_id INT NOT NULL AUTO_INCREMENT,
                       e_name VARCHAR(20),
                       div_name VARCHAR(20),
                       shift INT CHECK (shift>0 AND shift<4),
+                      photo LONGBLOB,
+                      password VARCHAR(40) NOT NULL,
                       PRIMARY KEY(e_id)) ENGINE=INNODB;
                       
 CREATE TABLE supervisor (e_id INT NOT NULL,
