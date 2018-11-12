@@ -1,4 +1,7 @@
-/* registration page... Still needs an upload picture field */
+/*employee registration page... Still needs an upload picture field
+Assuming supervisors do not register here, rather have their database info inserted manually
+Still trying to echo query e_id upon registration
+*/
 
 <?php
 	ini_set('error_reporting', 1);
@@ -48,8 +51,10 @@
 				$result = mysqli_query($dbc, $query);
 				if($result) { //It worked
 					echo "Thanks for registering $first $last<br>";
+					
+					/*echo e_id for employee upon registration(plz halp) */ 
 					$r = mysqli_query($dbc, "select e_id from employee where e_name = $fullname");
-					$row=mysqli_fetch_array($result,MYSQLI_ASSOC);
+					$row=mysqli_fetch_array($r,MYSQLI_ASSOC);
 					echo ("%s (%s)\n",$row["e_id"]);
 					
 				}
