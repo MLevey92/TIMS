@@ -1,3 +1,5 @@
+/* registration page... Still needs an upload picture field */
+
 <?php
 	ini_set('error_reporting', 1);
 	require './includes/header.php';
